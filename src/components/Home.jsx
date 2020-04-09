@@ -27,6 +27,7 @@ export class Home extends Component {
                             <th>Delete</th>
                         </tr>
                     </thead>
+                    {this.props.loading && <h5>Loading...</h5>}
                     <tbody>
                         {
                             this.props.users.map((user) => {
@@ -59,6 +60,7 @@ const mstp = state => {
     // console.log(state);
     return {
         users: state.data.users,
+        loading: state.data.loading,
         auth: state.firebase.auth
     }
 }

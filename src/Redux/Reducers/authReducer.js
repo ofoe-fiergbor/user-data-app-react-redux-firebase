@@ -22,7 +22,7 @@ const authReducer =(state=initialState, action)=>{
         case 'LOGIN_FAIL':
             return{
                 ...state,
-                authError: action.err.message
+                authError: 'Ooops....Email or Password is wrong'
             }
         case 'LOGOUT_SUCCESS':
             console.log('logout success')

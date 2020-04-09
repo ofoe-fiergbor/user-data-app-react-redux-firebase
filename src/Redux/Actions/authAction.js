@@ -8,13 +8,14 @@ export const register = (newAccount)=>{
         .createUserWithEmailAndPassword(newAccount.email, newAccount.password)
         .then(res=>{
             return firestore
-            .collection('User Accounts')
+            .collection('userAccounts')
             .doc(res.user.uid)
             .set({
                 firstName: newAccount.firstName,
                 lastName: newAccount.lastName,
                 email: newAccount.email,
-                password: newAccount.password
+                password: newAccount.password,
+                initials : newAccount.firstName[0] + newAccount.lastName[0]
             })
         }).then(()=>{
             dispatch({type:'SIGN_UP_SUCCESS'})

@@ -15,9 +15,14 @@ function SignInLinks(props) {
             <div id='link'>
                 <li onClick={props.logout}>Logout</li>
             </div>
-            <li className='initials'>od</li>
+            <li className='initials'>{props.profile.initials}</li>
         </div>
     )
 }
-export default connect(null, { logout })(SignInLinks)
+const mstp = state =>{
+    return{
+        profile: state.firebase.profile
+    }
+}
+export default connect(mstp, { logout })(SignInLinks)
 
