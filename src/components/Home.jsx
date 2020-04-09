@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getAllUsers } from '../Redux/Actions/action'
 import {deleteUser} from '../Redux/Actions/action'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 export class Home extends Component {
     componentDidMount = ()=>{
@@ -12,6 +12,7 @@ export class Home extends Component {
         this.props.deleteUser(id)
     }
     render() {
+        if(!this.props.auth.uid) return <Redirect to='/login'/>
         return (
             <div>
                 <table className='table table-striped tc'>
@@ -57,7 +58,8 @@ export class Home extends Component {
 const mstp = state => {
     // console.log(state);
     return {
-        users: state.data.users
+        users: state.data.users,
+        auth: state.firebase.auth
     }
 }
 export default connect(mstp, {getAllUsers, deleteUser})(Home)

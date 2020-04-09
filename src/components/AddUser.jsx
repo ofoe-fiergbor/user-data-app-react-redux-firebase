@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { addUser } from '../Redux/Actions/action'
 import { connect } from 'react-redux'
+import { Redirect} from 'react-router-dom'
 
 export class AddUser extends Component {
     handleSubmit = e => {
@@ -19,6 +20,7 @@ export class AddUser extends Component {
 
 
     render() {
+        if (!this.props.auth) return <Redirect to='/login'/>
         return (
             <div>
                 <h1 className='text-center'>Add User</h1>
@@ -52,5 +54,10 @@ export class AddUser extends Component {
         )
     }
 }
+const mstp = state =>{
+    return{
+        auth: state.firebase.auth
+    }
+}
 
-export default connect(null, {addUser})(AddUser)
+export default connect(mstp, {addUser})(AddUser)

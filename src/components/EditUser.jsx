@@ -50,7 +50,7 @@ export class EditUser extends Component {
                         <label>Address</label>
                         <input type="text" className="form-control" name='address' defaultValue={user.address} />
                     </div>
-                    <button type="submit" className="btn btn-default submitBtn">Submit</button>
+                    <button type="submit" className="btn btn-default submitBtn">Update User</button>
                 </form>
             </div>
         )

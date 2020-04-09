@@ -102,3 +102,15 @@ h1 {
 label{
   font-weight: bold;
 }
+.linkz{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+
+}
+.links{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+
+}
