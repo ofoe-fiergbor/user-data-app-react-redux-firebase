@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 import {register, authWithGoogle} from '../Redux/Actions/authAction'
 import { Redirect } from 'react-router-dom'
 export class SignUp extends Component {
-    handleSubmit = e => {
-        e.preventDefault()
-        const newAccount = {
-            firstName: e.target.elements.firstName.value,
-            lastName: e.target.elements.lastName.value,
-            email: e.target.elements.email.value,
-            password: e.target.elements.password.value,
-        }
+        handleSubmit = e => {
+            e.preventDefault()
+            const newAccount = {
+                firstName: e.target.elements.firstName.value,
+                lastName: e.target.elements.lastName.value,
+                email: e.target.elements.email.value,
+                password: e.target.elements.password.value,
+            }
         this.props.register(newAccount)
         
     }
